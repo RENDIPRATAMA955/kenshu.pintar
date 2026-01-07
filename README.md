@@ -1,0 +1,2 @@
+# kenshu.pintar
+adalah
