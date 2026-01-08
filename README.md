@@ -1,2 +1,2 @@
 # kenshu.pintar
-adalah
+situs juol jualan online

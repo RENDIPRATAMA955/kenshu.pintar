@@ -27,26 +27,32 @@ function initUI() {
         if (window.scrollY > 50) header.classList.add('scrolled'); else header.classList.remove('scrolled');
     });
 
-    // Contact form submission
+    // Contact form submission - WhatsApp
     const contactForm = document.getElementById('contactForm');
     if (contactForm) {
         contactForm.addEventListener('submit', (e) => {
             e.preventDefault();
-            const submitBtn = contactForm.querySelector('.submit-btn');
-            const originalText = submitBtn ? submitBtn.innerHTML : '';
-            if (!submitBtn) return;
-            submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Mengirim...';
-            submitBtn.disabled = true;
-            setTimeout(() => {
-                submitBtn.innerHTML = '<i class="fas fa-check"></i> Terkirim!';
-                submitBtn.style.background = 'linear-gradient(90deg, #4CAF50, #8BC34A)';
-                contactForm.reset();
-                setTimeout(() => {
-                    submitBtn.innerHTML = originalText;
-                    submitBtn.disabled = false;
-                    submitBtn.style.background = '';
-                }, 3000);
-            }, 2000);
+            
+            const inputs = contactForm.querySelectorAll('input, textarea');
+            let message = '';
+            
+            inputs.forEach(input => {
+                if (input.tagName.toLowerCase() === 'textarea') {
+                    message = input.value;
+                }
+            });
+            
+            // Encode message untuk URL
+            const encodedMessage = encodeURIComponent(message);
+            
+            // WhatsApp URL
+            const whatsappURL = `https://wa.me/6281990637492?text=${encodedMessage}`;
+            
+            // Buka WhatsApp di tab baru
+            window.open(whatsappURL, '_blank');
+            
+            // Reset form setelah dikirim
+            contactForm.reset();
         });
     }
 
