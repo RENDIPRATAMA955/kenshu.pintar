@@ -154,17 +154,17 @@ nav {
 }
 
 .hero-content {
-    max-width: 700px;
+    max-width: 800px;
     z-index: 10;
     position: relative;
 }
 
 .hero h1 {
     font-family: 'Montserrat', sans-serif;
-    font-size: 4rem;
+    font-size: 4.5rem;
     font-weight: 900;
     line-height: 1.1;
-    margin-bottom: 20px;
+    margin-bottom: 25px;
     background: linear-gradient(90deg, var(--primary), var(--accent), var(--secondary));
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
@@ -172,17 +172,26 @@ nav {
     animation: fadeInUp 1s ease forwards 0.5s;
 }
 
+.hero h2 {
+    font-size: 1.8rem;
+    margin-bottom: 10px;
+    color: var(--secondary);
+    opacity: 0;
+    animation: fadeInUp 1s ease forwards 0.3s;
+}
+
 .hero p {
-    font-size: 1.2rem;
-    margin-bottom: 30px;
+    font-size: 1.3rem;
+    margin-bottom: 35px;
     color: var(--gray);
     opacity: 0;
     animation: fadeInUp 1s ease forwards 0.8s;
+    line-height: 1.8;
 }
 
 .cta-button {
     display: inline-block;
-    padding: 15px 40px;
+    padding: 18px 45px;
     background: linear-gradient(90deg, var(--primary), var(--accent));
     color: white;
     text-decoration: none;
@@ -195,6 +204,7 @@ nav {
     opacity: 0;
     animation: fadeInUp 1s ease forwards 1.1s;
     transition: all 0.3s ease;
+    box-shadow: 0 8px 25px rgba(108, 99, 255, 0.3);
 }
 
 .cta-button::before {
@@ -298,13 +308,13 @@ section {
 
 .section-title {
     text-align: center;
-    margin-bottom: 70px;
+    margin-bottom: 80px;
     position: relative;
 }
 
 .section-title h2 {
     font-family: 'Montserrat', sans-serif;
-    font-size: 3rem;
+    font-size: 3.5rem;
     font-weight: 900;
     background: linear-gradient(90deg, var(--primary), var(--accent));
     -webkit-background-clip: text;
@@ -337,7 +347,7 @@ section {
 }
 
 .about-text h3 {
-    font-size: 2rem;
+    font-size: 2.2rem;
     margin-bottom: 20px;
     color: var(--light);
 }
@@ -345,6 +355,8 @@ section {
 .about-text p {
     margin-bottom: 20px;
     color: var(--gray);
+    font-size: 1.1rem;
+    line-height: 1.8;
 }
 
 .skills {
@@ -356,11 +368,13 @@ section {
 
 .skill {
     background: rgba(108, 99, 255, 0.1);
-    padding: 10px 25px;
+    padding: 12px 28px;
     border-radius: 50px;
     border: 1px solid rgba(108, 99, 255, 0.3);
     backdrop-filter: blur(5px);
     transition: all 0.3s ease;
+    font-size: 1rem;
+    font-weight: 500;
 }
 
 .skill:hover {
@@ -373,7 +387,7 @@ section {
     flex: 1;
     position: relative;
     height: auto;
-    max-width: 400px;
+    max-width: 500px;
 }
 
 .visual-element {
@@ -381,9 +395,14 @@ section {
     width: 100%;
     height: auto;
     aspect-ratio: 1 / 1;
-    border-radius: 20px;
+    border-radius: 12px;
     overflow: hidden;
     box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+}
+
+.visual-element.pulse-ring {
+    overflow: visible;
+    border-radius: 12px;
 }
 
 .visual-element img {
@@ -391,6 +410,7 @@ section {
     height: 100%;
     object-fit: cover;
     display: block;
+    border-radius: 12px;
     transition: transform 0.5s ease;
 }
 
@@ -449,35 +469,37 @@ section {
 /* Portfolio Section */
 .portfolio-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-    gap: 30px;
+    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+    gap: 35px;
 }
 
 .portfolio-item {
     border-radius: 15px;
     overflow: hidden;
     position: relative;
-    height: 300px;
+    height: 350px;
     cursor: pointer;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
 }
 
 .product-link-btn {
     position: absolute;
-    top: 15px;
-    right: 15px;
-    width: 35px;
-    height: 35px;
-    background: rgba(255, 255, 255, 0.9);
+    top: 20px;
+    right: 20px;
+    width: 45px;
+    height: 45px;
+    background: rgba(255, 255, 255, 0.95);
     border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
     color: var(--dark);
-    font-size: 16px;
+    font-size: 18px;
     z-index: 10;
     transition: all 0.3s ease;
     opacity: 0;
     transform: scale(0.8);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
 }
 
 .portfolio-item:hover .product-link-btn {
@@ -524,13 +546,15 @@ section {
 }
 
 .portfolio-overlay h3 {
-    font-size: 1.5rem;
-    margin-bottom: 10px;
+    font-size: 1.8rem;
+    margin-bottom: 12px;
+    font-weight: 700;
 }
 
 .portfolio-overlay p {
     color: var(--gray);
-    font-size: 0.9rem;
+    font-size: 1rem;
+    line-height: 1.6;
 }
 
 /* Contact Section */
@@ -548,8 +572,8 @@ section {
     align-items: center;
     margin-bottom: 30px;
     background: rgba(255, 255, 255, 0.05);
-    padding: 20px;
-    border-radius: 10px;
+    padding: 25px;
+    border-radius: 15px;
     transition: all 0.3s ease;
 }
 
@@ -560,7 +584,7 @@ section {
 
 .map-container {
     margin-bottom: 30px;
-    border-radius: 10px;
+    border-radius: 15px;
     overflow: hidden;
     box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
 }
@@ -570,15 +594,15 @@ section {
 }
 
 .contact-icon {
-    width: 60px;
-    height: 60px;
+    width: 70px;
+    height: 70px;
     background: linear-gradient(90deg, var(--primary), var(--accent));
     border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
-    margin-right: 20px;
-    font-size: 24px;
+    margin-right: 25px;
+    font-size: 28px;
 }
 
 .contact-form {
@@ -592,10 +616,10 @@ section {
 .form-group input,
 .form-group textarea {
     width: 100%;
-    padding: 15px 20px;
+    padding: 18px 25px;
     background: rgba(255, 255, 255, 0.05);
     border: 1px solid rgba(255, 255, 255, 0.1);
-    border-radius: 10px;
+    border-radius: 12px;
     color: var(--light);
     font-family: 'Poppins', sans-serif;
     font-size: 16px;
@@ -610,12 +634,12 @@ section {
 }
 
 .form-group textarea {
-    height: 150px;
+    height: 180px;
     resize: vertical;
 }
 
 .submit-btn {
-    padding: 15px 40px;
+    padding: 18px 50px;
     background: linear-gradient(90deg, var(--primary), var(--accent));
     color: white;
     border: none;
@@ -626,11 +650,12 @@ section {
     transition: all 0.3s ease;
     position: relative;
     overflow: hidden;
+    box-shadow: 0 8px 25px rgba(108, 99, 255, 0.3);
 }
 
 .submit-btn:hover {
     transform: translateY(-5px);
-    box-shadow: 0 10px 25px rgba(108, 99, 255, 0.4);
+    box-shadow: 0 12px 30px rgba(108, 99, 255, 0.5);
 }
 
 /* Footer */
@@ -900,5 +925,368 @@ footer {
     .copyright {
         font-size: 12px;
         padding: 0 20px;
+    }
+}
+
+/* ==========================================
+   NEW EFFECTS - JAKENSHOP
+   ========================================== */
+
+/* Scroll Progress Bar - DIHAPUS */
+/* .scroll-progress {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 4px;
+    background: linear-gradient(90deg, var(--primary), var(--accent), var(--secondary));
+    z-index: 10001;
+    transition: width 0.1s ease;
+} */
+
+/* 3. Scroll Reveal Animation - DIHAPUS */
+/* .reveal-on-scroll {
+    opacity: 0;
+    transform: translateY(50px);
+    transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.reveal-on-scroll.revealed {
+    opacity: 1;
+    transform: translateY(0);
+} */
+
+/* 4. Particles Background */
+.particle {
+    position: absolute;
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 0;
+}
+
+@keyframes particleFloat {
+    0%, 100% {
+        transform: translateY(0) translateX(0);
+        opacity: 0.2;
+    }
+    25% {
+        transform: translateY(-100px) translateX(50px);
+        opacity: 0.5;
+    }
+    50% {
+        transform: translateY(-200px) translateX(-50px);
+        opacity: 0.3;
+    }
+    75% {
+        transform: translateY(-150px) translateX(30px);
+        opacity: 0.6;
+    }
+}
+
+/* 5. Preloader */
+.preloader {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: var(--dark);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 10002;
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+.preloader.hidden {
+    opacity: 0;
+    visibility: hidden;
+}
+
+.loader {
+    width: 50px;
+    height: 50px;
+    border: 4px solid rgba(108, 99, 255, 0.2);
+    border-top-color: var(--primary);
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    to { transform: rotate(360deg); }
+}
+
+/* 6. Modal Styles */
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 10003;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+}
+
+.modal-overlay.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+.modal-content {
+    background: var(--dark);
+    border-radius: 20px;
+    padding: 40px;
+    max-width: 600px;
+    width: 90%;
+    max-height: 80vh;
+    overflow-y: auto;
+    position: relative;
+    transform: scale(0.8);
+    transition: transform 0.3s ease;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+}
+
+.modal-overlay.active .modal-content {
+    transform: scale(1);
+}
+
+.modal-close {
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    background: none;
+    border: none;
+    color: var(--light);
+    font-size: 30px;
+    cursor: pointer;
+    transition: color 0.3s ease;
+}
+
+.modal-close:hover {
+    color: var(--secondary);
+}
+
+/* 7. Glow Effects */
+.glow-effect {
+    animation: glowPulse 2s ease-in-out infinite;
+}
+
+@keyframes glowPulse {
+    0%, 100% {
+        box-shadow: 0 0 20px rgba(108, 99, 255, 0.3);
+    }
+    50% {
+        box-shadow: 0 0 40px rgba(108, 99, 255, 0.6);
+    }
+}
+
+/* 8. Glassmorphism Card */
+.glass-card {
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 20px;
+    padding: 30px;
+}
+
+/* 9. Text Gradient Animation */
+.animated-gradient {
+    background: linear-gradient(90deg, var(--primary), var(--accent), var(--secondary), var(--primary));
+    background-size: 300% 300%;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    animation: gradientMove 5s ease infinite;
+}
+
+@keyframes gradientMove {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+/* 10. Hover Scale Card */
+.hover-scale-card {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.hover-scale-card:hover {
+    transform: scale(1.03);
+    box-shadow: 0 15px 40px rgba(108, 99, 255, 0.2);
+}
+
+/* 11. Shimmer Loading Effect */
+.shimmer {
+    background: linear-gradient(
+        90deg,
+        rgba(255, 255, 255, 0.05) 0%,
+        rgba(255, 255, 255, 0.1) 50%,
+        rgba(255, 255, 255, 0.05) 100%
+    );
+    background-size: 200% 100%;
+    animation: shimmer 1.5s infinite;
+}
+
+@keyframes shimmer {
+    0% { background-position: -200% 0; }
+    100% { background-position: 200% 0; }
+}
+
+/* 12. Bounce Animation */
+.bounce-effect {
+    animation: bounce 0.6s ease;
+}
+
+@keyframes bounce {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-20px); }
+}
+
+/* 13. Shake Animation */
+.shake-effect {
+    animation: shake 0.5s ease;
+}
+
+@keyframes shake {
+    0%, 100% { transform: translateX(0); }
+    20% { transform: translateX(-10px); }
+    40% { transform: translateX(10px); }
+    60% { transform: translateX(-10px); }
+    80% { transform: translateX(10px); }
+}
+
+/* 14. Pulse Ring Effect */
+.pulse-ring {
+    position: relative;
+}
+
+.pulse-ring::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 100%;
+    height: 100%;
+    border: 2px solid var(--primary);
+    border-radius: inherit;
+    transform: translate(-50%, -50%);
+    animation: pulseRing 2s ease-out infinite;
+}
+
+@keyframes pulseRing {
+    0% {
+        transform: translate(-50%, -50%) scale(1);
+        opacity: 1;
+    }
+    100% {
+        transform: translate(-50%, -50%) scale(1.5);
+        opacity: 0;
+    }
+}
+
+/* 15. Nav Active Link */
+.nav-links a.active {
+    color: var(--secondary);
+}
+
+.nav-links a.active::after {
+    width: 100%;
+}
+
+/* 16. Image Loaded State */
+img.loaded {
+    animation: fadeIn 0.5s ease;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+/* 17. Section Divider with Wave */
+.wave-divider {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    overflow: hidden;
+    line-height: 0;
+}
+
+.wave-divider svg {
+    position: relative;
+    display: block;
+    width: calc(100% + 1.3px);
+    height: 60px;
+}
+
+.wave-divider .shape-fill {
+    fill: var(--dark);
+}
+
+/* 18. Floating Badge */
+.floating-badge {
+    position: absolute;
+    animation: floatBadge 3s ease-in-out infinite;
+}
+
+@keyframes floatBadge {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-15px); }
+}
+
+/* 19. Gradient Border Card */
+.gradient-border-card {
+    position: relative;
+    background: var(--dark);
+    border-radius: 20px;
+    padding: 3px;
+}
+
+.gradient-border-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    border-radius: 20px;
+    padding: 3px;
+    background: linear-gradient(90deg, var(--primary), var(--accent), var(--secondary));
+    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+}
+
+/* 20. Highlight Text Effect */
+.highlight-text {
+    position: relative;
+    display: inline-block;
+}
+
+.highlight-text::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 30%;
+    background: linear-gradient(90deg, var(--primary), var(--secondary));
+    opacity: 0.3;
+    z-index: -1;
+    transform: skewX(-5deg);
+}
+
+/* Disable cursor effects on touch devices */
+@media (hover: none) {
+    .scroll-progress {
+        display: none;
     }
 }
