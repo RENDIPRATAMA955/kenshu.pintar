@@ -1,21 +1,3 @@
-/* Small partial loader: cari elemen dengan atribut data-partial dan masukkan konten */
-async function loadPartials() {
-    const partials = document.querySelectorAll('[data-partial]');
-    const promises = Array.from(partials).map(async (el) => {
-        const path = el.getAttribute('data-partial');
-        try {
-            const res = await fetch(path);
-            if (!res.ok) throw new Error('Failed to load ' + path);
-            const html = await res.text();
-            el.innerHTML = html;
-        } catch (err) {
-            console.error(err);
-            el.innerHTML = '<!-- Gagal memuat ' + path + ' -->';
-        }
-    });
-    await Promise.all(promises);
-}
-
 function initUI() {
     // Mobile Menu Toggle
     const menuToggle = document.getElementById('menuToggle');
@@ -88,7 +70,7 @@ function initUI() {
     });
 }
 
-document.addEventListener('DOMContentLoaded', async () => {
-    await loadPartials();
+document.addEventListener('DOMContentLoaded', () => {
     initUI();
 });
+
