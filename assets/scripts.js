@@ -1,5 +1,5 @@
 // ==========================================
-// JAKENSHOP - Complete Effects Package
+// KENSHU.PINTAR - SOLANA-INSPIRED JAVASCRIPT
 // ==========================================
 
 function initUI() {
@@ -10,15 +10,21 @@ function initUI() {
     if (menuToggle && navLinks) {
         menuToggle.addEventListener('click', () => {
             navLinks.classList.toggle('active');
-            menuToggle.querySelector('i').classList.toggle('fa-bars');
-            menuToggle.querySelector('i').classList.toggle('fa-times');
+            const icon = menuToggle.querySelector('i');
+            if (icon) {
+                icon.classList.toggle('fa-bars');
+                icon.classList.toggle('fa-times');
+            }
         });
 
         document.querySelectorAll('.nav-links a').forEach(link => {
             link.addEventListener('click', () => {
                 if (navLinks) navLinks.classList.remove('active');
                 const icon = menuToggle.querySelector('i');
-                if (icon) { icon.classList.add('fa-bars'); icon.classList.remove('fa-times'); }
+                if (icon) {
+                    icon.classList.add('fa-bars');
+                    icon.classList.remove('fa-times');
+                }
             });
         });
     }
@@ -27,7 +33,8 @@ function initUI() {
     window.addEventListener('scroll', () => {
         const header = document.getElementById('header');
         if (!header) return;
-        if (window.scrollY > 50) header.classList.add('scrolled'); else header.classList.remove('scrolled');
+        if (window.scrollY > 50) header.classList.add('scrolled');
+        else header.classList.remove('scrolled');
     });
 
     // Contact form submission - WhatsApp
@@ -58,48 +65,7 @@ function initUI() {
     }
 
     // ==========================================
-    // 1. TYPING TEXT EFFECT - Hero Section
-    // ==========================================
-    const typingElement = document.querySelector('.hero h2');
-    if (typingElement) {
-        const texts = ['online shop', 'JAKENSHOP', 'One for All'];
-        let textIndex = 0;
-        let charIndex = 0;
-        let isDeleting = false;
-        let typingSpeed = 100;
-
-        function typeEffect() {
-            const currentText = texts[textIndex];
-
-            if (isDeleting) {
-                typingElement.textContent = currentText.substring(0, charIndex - 1);
-                charIndex--;
-                typingSpeed = 50;
-            } else {
-                typingElement.textContent = currentText.substring(0, charIndex + 1);
-                charIndex++;
-                typingSpeed = 150;
-            }
-
-            if (!isDeleting && charIndex === currentText.length) {
-                isDeleting = true;
-                typingSpeed = 2000;
-            } else if (isDeleting && charIndex === 0) {
-                isDeleting = false;
-                textIndex = (textIndex + 1) % texts.length;
-                typingSpeed = 500;
-            }
-
-            setTimeout(typeEffect, typingSpeed);
-        }
-
-        // Start typing effect
-        typingElement.style.opacity = '1';
-        typeEffect();
-    }
-
-    // ==========================================
-    // 2. TILT 3D EFFECT - Portfolio Cards & About Photo
+    // TILT 3D EFFECT - Portfolio Cards & About Photo
     // ==========================================
     document.querySelectorAll('.portfolio-item, .visual-element').forEach(card => {
         card.addEventListener('mousemove', (e) => {
@@ -110,10 +76,10 @@ function initUI() {
             const centerX = rect.width / 2;
             const centerY = rect.height / 2;
 
-            const rotateX = (y - centerY) / 20;
-            const rotateY = (centerX - x) / 20;
+            const rotateX = (y - centerY) / 25;
+            const rotateY = (centerX - x) / 25;
 
-            card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale3d(1.05, 1.05, 1.05)`;
+            card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale3d(1.02, 1.02, 1.02)`;
             card.style.transition = 'transform 0.1s ease';
         });
 
@@ -124,91 +90,7 @@ function initUI() {
     });
 
     // ==========================================
-    // 4. COUNTING NUMBERS ANIMATION
-    // ==========================================
-    const counterElements = document.querySelectorAll('.skill, .contact-item h3');
-
-    const animateCounter = (element, target, duration = 2000) => {
-        const start = 0;
-        const increment = target / (duration / 16);
-        let current = start;
-
-        const timer = setInterval(() => {
-            current += increment;
-            if (current >= target) {
-                element.textContent = target;
-                clearInterval(timer);
-            } else {
-                element.textContent = Math.floor(current);
-            }
-        }, 16);
-    };
-
-    // ==========================================
-    // 5. PARALLAX SCROLLING EFFECT - DIHAPUS
-    // ==========================================
-    /* window.addEventListener('scroll', () => {
-        const scrolled = window.pageYOffset;
-
-        // Parallax for floating shapes
-        document.querySelectorAll('.shape').forEach((shape, index) => {
-            const speed = 0.1 + (index * 0.05);
-            shape.style.transform = `translateY(${scrolled * speed}px)`;
-        });
-
-        // Parallax for hero content
-        const heroContent = document.querySelector('.hero-content');
-        if (heroContent) {
-            heroContent.style.transform = `translateY(${scrolled * 0.3}px)`;
-            heroContent.style.opacity = 1 - (scrolled / 700);
-        }
-
-        // Scroll progress indicator
-        updateScrollProgress();
-    }); */
-
-    // ==========================================
-    // 6. SCROLL PROGRESS INDICATOR - DIHAPUS
-    // ==========================================
-    /* const progressBar = document.createElement('div');
-    progressBar.className = 'scroll-progress';
-    document.body.appendChild(progressBar);
-
-    function updateScrollProgress() {
-        const scrollTop = window.scrollY;
-        const docHeight = document.documentElement.scrollHeight - window.innerHeight;
-        const scrollPercent = (scrollTop / docHeight) * 100;
-        progressBar.style.width = scrollPercent + '%';
-    } */
-
-    // ==========================================
-    // 7. ENHANCED SCROLL REVEAL ANIMATIONS - DIHAPUS
-    // ==========================================
-    /* const observerOptions = {
-        threshold: 0.1,
-        rootMargin: '0px 0px -50px 0px'
-    };
-
-    const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.classList.add('revealed');
-
-                // Stagger animation for grid items
-                const siblings = entry.target.parentElement.querySelectorAll('.revealed');
-                entry.target.style.transitionDelay = `${siblings.length * 0.1}s`;
-            }
-        });
-    }, observerOptions);
-
-    // Add reveal class and initial styles
-    document.querySelectorAll('.about-text, .about-visual, .portfolio-item, .contact-info, .contact-form, .section-title').forEach(el => {
-        el.classList.add('reveal-on-scroll');
-        observer.observe(el);
-    }); */
-
-    // ==========================================
-    // 8. MAGNETIC BUTTON EFFECT
+    // MAGNETIC BUTTON EFFECT
     // ==========================================
     document.querySelectorAll('.cta-button, .submit-btn').forEach(btn => {
         btn.addEventListener('mousemove', (e) => {
@@ -216,7 +98,7 @@ function initUI() {
             const x = e.clientX - rect.left - rect.width / 2;
             const y = e.clientY - rect.top - rect.height / 2;
 
-            btn.style.transform = `translate(${x * 0.2}px, ${y * 0.2}px)`;
+            btn.style.transform = `translate(${x * 0.15}px, ${y * 0.15}px)`;
         });
 
         btn.addEventListener('mouseleave', () => {
@@ -225,19 +107,7 @@ function initUI() {
     });
 
     // ==========================================
-    // 9. PORTFOLIO & ABOUT PHOTO HOVER EFFECTS
-    // ==========================================
-    document.querySelectorAll('.portfolio-item, .visual-element').forEach(item => {
-        item.addEventListener('mouseenter', () => {
-            item.style.boxShadow = '0 20px 50px rgba(108, 99, 255, 0.4)';
-        });
-        item.addEventListener('mouseleave', () => {
-            item.style.boxShadow = '0 10px 30px rgba(0, 0, 0, 0.3)';
-        });
-    });
-
-    // ==========================================
-    // 10. SMOOTH SCROLL FOR ANCHOR LINKS
+    // SMOOTH SCROLL FOR ANCHOR LINKS
     // ==========================================
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function (e) {
@@ -253,25 +123,7 @@ function initUI() {
     });
 
     // ==========================================
-    // 11. LAZY LOADING FOR IMAGES
-    // ==========================================
-    const imageObserver = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                const img = entry.target;
-                img.src = img.dataset.src || img.src;
-                img.classList.add('loaded');
-                imageObserver.unobserve(img);
-            }
-        });
-    });
-
-    document.querySelectorAll('img[data-src]').forEach(img => {
-        imageObserver.observe(img);
-    });
-
-    // ==========================================
-    // 12. ACTIVE NAV LINK HIGHLIGHT
+    // ACTIVE NAV LINK HIGHLIGHT
     // ==========================================
     const sections = document.querySelectorAll('section[id]');
 
@@ -295,7 +147,7 @@ function initUI() {
     });
 
     // ==========================================
-    // 13. PREloader
+    // PRELOADER
     // ==========================================
     const preloader = document.createElement('div');
     preloader.className = 'preloader';
@@ -306,49 +158,34 @@ function initUI() {
         setTimeout(() => {
             preloader.classList.add('hidden');
             setTimeout(() => preloader.remove(), 500);
-        }, 500);
+        }, 800);
     });
 
     // ==========================================
-    // 14. PARTICLE BACKGROUND (Enhanced)
+    // PARTICLE BACKGROUND
     // ==========================================
     createParticles();
-
-    // ==========================================
-    // 15. TEXT GLOW EFFECT ON SCROLL - DIHAPUS
-    // ==========================================
-    /* window.addEventListener('scroll', () => {
-        const scrolled = window.scrollY;
-        const heroTitle = document.querySelector('.hero h1');
-
-        if (heroTitle && scrolled < 500) {
-            const glowIntensity = 1 - (scrolled / 500);
-            heroTitle.style.textShadow = `0 0 ${30 * glowIntensity}px rgba(108, 99, 255, ${0.5 * glowIntensity})`;
-        }
-    }); */
-
-    // ==========================================
-    // 16. PORTFOLIO & ABOUT PHOTO HOVER EFFECTS
-    // ==========================================
 }
 
 // ==========================================
 // PARTICLE SYSTEM
 // ==========================================
 function createParticles() {
-    const particleContainer = document.querySelector('.floating-shapes') || document.body;
+    const particleContainer = document.querySelector('.floating-shapes');
+    if (!particleContainer) return;
 
-    for (let i = 0; i < 50; i++) {
+    // Add particles (limit to avoid performance issues)
+    for (let i = 0; i < 30; i++) {
         const particle = document.createElement('div');
         particle.className = 'particle';
 
-        // Random properties
         const size = Math.random() * 6 + 2;
         const posX = Math.random() * 100;
         const posY = Math.random() * 100;
-        const duration = Math.random() * 20 + 10;
+        const duration = Math.random() * 15 + 10;
         const delay = Math.random() * 5;
-        const color = ['#6C63FF', '#FF6584', '#36D1DC', '#ffffff'][Math.floor(Math.random() * 4)];
+        const colors = ['#9945FF', '#14F195', '#FFFFFF', 'rgba(153, 69, 255, 0.5)'];
+        const color = colors[Math.floor(Math.random() * colors.length)];
 
         particle.style.cssText = `
             position: absolute;
@@ -358,7 +195,7 @@ function createParticles() {
             border-radius: 50%;
             left: ${posX}%;
             top: ${posY}%;
-            opacity: ${Math.random() * 0.5 + 0.2};
+            opacity: ${Math.random() * 0.4 + 0.1};
             animation: particleFloat ${duration}s ease-in-out ${delay}s infinite;
             pointer-events: none;
         `;
@@ -385,7 +222,7 @@ function createModal() {
         if (e.target === modal) closeModal();
     });
 
-    document.querySelector('.modal-close').addEventListener('click', closeModal);
+    document.querySelector('.modal-close')?.addEventListener('click', closeModal);
 
     document.addEventListener('keydown', (e) => {
         if (e.key === 'Escape') closeModal();
@@ -420,5 +257,246 @@ window.closeModal = closeModal;
 // ==========================================
 document.addEventListener('DOMContentLoaded', () => {
     initUI();
+    initTypingAnimation();
+    initLanguageSwitcher();
 });
+
+// ==========================================
+// TYPING TEXT ANIMATION
+// ==========================================
+function initTypingAnimation() {
+    const typedTextElement = document.querySelector('.typed-text');
+    if (!typedTextElement) return;
+
+    const texts = ['Kenshu Pintar', 'JAKENSHOP', 'Solusi Digital'];
+    let textIndex = 0;
+    let charIndex = 0;
+    let isDeleting = false;
+    let typingSpeed = 100;
+
+    function typeEffect() {
+        const currentText = texts[textIndex];
+
+        if (isDeleting) {
+            typedTextElement.textContent = currentText.substring(0, charIndex - 1);
+            charIndex--;
+            typingSpeed = 50;
+        } else {
+            typedTextElement.textContent = currentText.substring(0, charIndex + 1);
+            charIndex++;
+            typingSpeed = 150;
+        }
+
+        if (!isDeleting && charIndex === currentText.length) {
+            isDeleting = true;
+            typingSpeed = 2000;
+        } else if (isDeleting && charIndex === 0) {
+            isDeleting = false;
+            textIndex = (textIndex + 1) % texts.length;
+            typingSpeed = 500;
+        }
+
+        setTimeout(typeEffect, typingSpeed);
+    }
+
+    // Start typing effect
+    typeEffect();
+}
+
+// ==========================================
+// LANGUAGE SWITCHER
+// ==========================================
+const translations = {
+    id: {
+        // Navigation
+        home: 'Beranda',
+        about: 'Tentang',
+        portfolio: 'Produk',
+        contact: 'Kontak',
+        // Hero
+        welcomeTo: 'Welcome to',
+        heroDesc: 'Solusi digital terpercaya untuk kebutuhan Anda. Kami menyediakan produk dan layanan berkualitas tinggi dengan pelayanan profesional.',
+        ctaButton: 'Lihat Produk',
+        // About
+        aboutTitle: 'Tentang Saya',
+        aboutGreeting: 'Halo, Saya',
+        aboutName: 'Rendi Pratama',
+        aboutDesc1: 'Perkenalkan, nama saya Rendi Pratama, pengelola situs ini. Saya berkomitmen memberikan produk dan layanan digital dengan kualitas terbaik.',
+        aboutDesc2: 'Saya fokus pada kejelasan informasi dan pelayanan yang dapat dipercaya, agar setiap pelanggan merasa aman dan nyaman dalam bertransaksi.',
+        aboutRole: 'Pengelola JAken.com',
+        // Products
+        productsTitle: 'Produk Kami',
+        product1Title: 'Kartu Internet',
+        product1Desc: 'Berbagai kartu internet Jepang, tanpa kontrak',
+        product2Title: 'Tabako',
+        product2Desc: 'Berbagai merek rok Jepang, harga kompetitif',
+        product3Title: 'Kelas Trading',
+        product3Desc: 'Strategi trading & investasi lengkap dan realistis',
+        // Contact
+        contactTitle: 'Hubungi Saya',
+        locationLabel: 'Lokasi',
+        locationValue: 'Sakabe, Makinohara, Shizuoka Japan',
+        emailLabel: 'Email',
+        phoneLabel: 'Telepon',
+        namePlaceholder: 'Nama Lengkap',
+        messagePlaceholder: 'Pesan Anda',
+        submitButton: 'Kirim Pesan',
+        locationTitle: 'Lokasi Kami'
+    },
+    jp: {
+        // Navigation
+        home: 'ホーム',
+        about: '概要',
+        portfolio: '製品',
+        contact: 'お問い合わせ',
+        // Hero
+        welcomeTo: 'ようこそ',
+        heroDesc: '信頼できるデジタルソリューション。高品質な製品とプロフェッショナルなサービス为您提供します。',
+        ctaButton: '製品を見る',
+        // About
+        aboutTitle: '概要',
+        aboutGreeting: 'こんにちは、',
+        aboutName: 'レンディプラタマです',
+        aboutDesc1: 'ご紹介します。私はレンディプラタマです。このサイトの運営者です。最高の品質の製品とデジタルサービスを提供することをお約束します。',
+        aboutDesc2: '私は情報の明確さと信頼できるサービスに注意を払い、すべての顧客が安全に快適に取引できるようにします。',
+        aboutRole: 'JAken.com管理者',
+        // Products
+        productsTitle: '製品',
+        product1Title: 'インターネットカード',
+        product1Desc: '様々な日本のインターネットカード、契約なし',
+        product2Title: 'タバコ',
+        product2Desc: '様々な日本のタバコ、お得な価格',
+        product3Title: 'トレーディングクラス',
+        product3Desc: '完全で現実的なトレーディング・投資戦略',
+        // Contact
+        contactTitle: 'お問い合わせ',
+        locationLabel: '場所',
+        locationValue: '静岡県牧之原市坂部',
+        emailLabel: 'メール',
+        phoneLabel: '電話',
+        namePlaceholder: 'お名前',
+        messagePlaceholder: 'メッセージ',
+        submitButton: '送信',
+        locationTitle: '私たちの場所'
+    },
+    en: {
+        // Navigation
+        home: 'Home',
+        about: 'About',
+        portfolio: 'Products',
+        contact: 'Contact',
+        // Hero
+        welcomeTo: 'Welcome to',
+        heroDesc: 'Your trusted digital solution. We provide high-quality products and services with professional care.',
+        ctaButton: 'View Products',
+        // About
+        aboutTitle: 'About Me',
+        aboutGreeting: 'Hello, I am',
+        aboutName: 'Rendi Pratama',
+        aboutDesc1: 'Let me introduce myself. My name is Rendi Pratama, the manager of this site. I am committed to providing the best quality digital products and services.',
+        aboutDesc2: 'I focus on clear information and trustworthy service, so every customer feels safe and comfortable in transactions.',
+        aboutRole: 'Manager of JAken.com',
+        // Products
+        productsTitle: 'Our Products',
+        product1Title: 'Internet Card',
+        product1Desc: 'Various Japanese internet cards, no contract required',
+        product2Title: 'Tobacco',
+        product2Desc: 'Various Japanese tobacco products, competitive prices',
+        product3Title: 'Trading Class',
+        product3Desc: 'Complete and realistic trading & investment strategies',
+        // Contact
+        contactTitle: 'Contact Me',
+        locationLabel: 'Location',
+        locationValue: 'Sakabe, Makinohara, Shizuoka Japan',
+        emailLabel: 'Email',
+        phoneLabel: 'Phone',
+        namePlaceholder: 'Full Name',
+        messagePlaceholder: 'Your Message',
+        submitButton: 'Send Message',
+        locationTitle: 'Our Location'
+    }
+};
+
+function initLanguageSwitcher() {
+    const langBtns = document.querySelectorAll('.lang-btn');
+    let currentLang = 'id';
+
+    // Load saved language
+    const savedLang = localStorage.getItem('selectedLanguage');
+    if (savedLang && translations[savedLang]) {
+        currentLang = savedLang;
+        updateLanguage(savedLang);
+    }
+
+    langBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+            const lang = btn.dataset.lang;
+            if (lang === currentLang) return;
+
+            currentLang = lang;
+            localStorage.setItem('selectedLanguage', lang);
+            updateLanguage(lang);
+
+            // Update active button
+            langBtns.forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+        });
+    });
+
+    // Set initial active button
+    langBtns.forEach(btn => {
+        if (btn.dataset.lang === currentLang) {
+            btn.classList.add('active');
+        } else {
+            btn.classList.remove('active');
+        }
+    });
+}
+
+function updateLanguage(lang) {
+    const t = translations[lang];
+    if (!t) return;
+
+    // Update all elements with data-text-id attribute
+    document.querySelectorAll('[data-text-id]').forEach(element => {
+        const textId = element.dataset.textId;
+        if (t[textId]) {
+            element.textContent = t[textId];
+        }
+    });
+
+    // Update hero title (keep the space before Kenshu Pintar in JP)
+    const heroTitle = document.querySelector('.hero-title');
+    if (heroTitle) {
+        heroTitle.textContent = lang === 'jp' ? ' Kenshu Pintar' : 'Kenshu Pintar';
+    }
+
+    // Update hero description
+    const heroDesc = document.querySelector('.fade-in');
+    if (heroDesc) heroDesc.textContent = t.heroDesc;
+
+    // Update CTA button
+    const ctaBtn = document.querySelector('.cta-button');
+    if (ctaBtn) {
+        ctaBtn.innerHTML = `${t.ctaButton} <i class="fas fa-arrow-right"></i>`;
+    }
+
+    // Update form elements
+    const nameInput = document.querySelector('input[placeholder]');
+    if (nameInput && nameInput.placeholder === 'Nama Lengkap') {
+        nameInput.placeholder = t.namePlaceholder;
+    }
+
+    const messageInput = document.querySelector('textarea');
+    if (messageInput) messageInput.placeholder = t.messagePlaceholder;
+
+    const submitBtn = document.querySelector('.submit-btn');
+    if (submitBtn) {
+        submitBtn.innerHTML = `${t.submitButton} <i class="fas fa-paper-plane"></i>`;
+    }
+
+    // Update map title
+    const mapIframe = document.querySelector('.map-container iframe');
+    if (mapIframe) mapIframe.title = t.locationTitle;
+}
 

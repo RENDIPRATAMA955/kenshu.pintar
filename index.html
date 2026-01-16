@@ -4,10 +4,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>kenshu project</title>
+    <title> jAkens</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link
-        href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Montserrat:wght@800;900&display=swap"
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap"
         rel="stylesheet">
     <link rel="stylesheet" href="assets/styles.css">
 </head>
@@ -17,19 +17,24 @@
     <header id="header">
         <div class="container">
             <nav>
-                <a href="#home" class="logo">JAKENSHOP<span style="color: var(--secondary);">.
-                        <img src="assets/img/logo.png " alt="logo" style="width: 30px; height: 30px;">
-                    </span></a>
+                <a href="#home" class="logo">JAken<span style="color: #14F195;">.official</span></a>
 
                 <div class="menu-toggle" id="menuToggle">
                     <i class="fas fa-bars"></i>
                 </div>
                 <ul class="nav-links" id="navLinks">
-                    <li><a href="#home">beranda</a></li>
-                    <li><a href="#about">Tentang</a></li>
-                    <li><a href="#portfolio">produk</a></li>
-                    <li><a href="#contact">Kontak</a></li>
+                    <li><a href="#home" data-text-id="home">Beranda</a></li>
+                    <li><a href="#about" data-text-id="about">Tentang</a></li>
+                    <li><a href="#portfolio" data-text-id="portfolio">Produk</a></li>
+                    <li><a href="#contact" data-text-id="contact">Kontak</a></li>
                 </ul>
+                <div class="language-switcher">
+                    <button class="lang-btn active" data-lang="id">ID</button>
+                    <span class="lang-divider">|</span>
+                    <button class="lang-btn" data-lang="jp">JP</button>
+                    <span class="lang-divider">|</span>
+                    <button class="lang-btn" data-lang="en">EN</button>
+                </div>
             </nav>
         </div>
     </header>
@@ -38,21 +43,18 @@
     <main>
         <!-- Hero Section -->
         <section class="hero" id="home">
-            <div class="container">
-                <div class="hero-content">
-                    <h2 class="animated-gradient">online shop</h2>
-                    <h1 class="glow-effect">One for all </h1>
-                    <p class="highlight-text">Toko yang berfokus pada penyediaan
-                         produk dan layanan digital dengan kualitas terbaik, 
-                         dirancang untuk memberikan pengalaman yang nyaman, jelas, dan memuaskan. 
-                         Mari bersama-sama mewujudkan pilihan yang tepat untuk kebutuhan Anda</p>
-                    <a href="#portfolio" class="cta-button hover-scale-card">Lihat Produk <i class="fas fa-arrow-right"></i></a>
-                </div>
-            </div>
             <div class="floating-shapes">
                 <div class="shape"></div>
                 <div class="shape"></div>
                 <div class="shape"></div>
+            </div>
+            <div class="container">
+                <div class="hero-content">
+                    <h2 class="typing-text"><span class="static-text">Welcome to</span> <span class="typed-text"></span></h2>
+                    <h1 class="hero-title glow-effect">Kenshu Pintar</h1>
+                    <p class="fade-in">Solusi digital terpercaya untuk kebutuhan Anda. Kami menyediakan produk dan layanan berkualitas tinggi dengan pelayanan profesional.</p>
+                    <a href="#portfolio" class="cta-button fade-in-delay">Lihat Produk <i class="fas fa-arrow-right"></i></a>
+                </div>
             </div>
         </section>
 
@@ -60,36 +62,30 @@
         <section id="about">
             <div class="container">
                 <div class="section-title">
-                    <h2>Tentang Saya</h2>
+                    <h2 data-text-id="aboutTitle">Tentang Saya</h2>
                 </div>
                 <div class="about-content">
-                    <div class="about-text glass-card hover-scale-card" id="aboutCard">
-                        <h3>Halo, Saya <span style="color: var(--secondary)">レンデイ　プラタマ</span></h3>
-                        <p>Perkenalkan, nama saya Rendi Pratama, pengelola situs ini. Saya menjalankan 
-                            usaha ini dengan fokus pada kualitas produk, kejelasan informasi, dan pelayanan
-                             yang dapat dipercaya, agar setiap pelanggan merasa aman dan nyaman dalam bertransaksi.</p>
-                        <p>Melalui situs ini, saya berkomitmen untuk terus memberikan nilai terbaik
-                            serta membangun hubungan jangka panjang dengan pelanggan berdasarkan kejujuran
-                            dan tanggung jawab. Yoroshiku onegaishimasu.</p>
+                    <div class="about-text">
+                        <h3><span data-text-id="aboutGreeting">Halo, Saya</span> <span data-text-id="aboutName">Rendi Pratama</span></h3>
+                        <p data-text-id="aboutDesc1">Perkenalkan, nama saya Rendi Pratama, pengelola situs ini. Saya berkomitmen memberikan produk dan layanan digital dengan kualitas terbaik.</p>
+                        <p data-text-id="aboutDesc2">Saya fokus pada kejelasan informasi dan pelayanan yang dapat dipercaya, agar setiap pelanggan merasa aman dan nyaman dalam bertransaksi.</p>
                         <div class="skills">
-                            <div class="skill">tabako</div>
-                            <div class="skill">karu internet</div>
-                            <div class="skill">modul belajar b.japan</div>
+                            <div class="skill">Tabako</div>
+                            <div class="skill">Kartu Internet</div>
+                            <div class="skill">Modul Belajar</div>
                             <div class="skill">Branding</div>
-                            <div class="skill">kelas trading & investasi</div>
-                            <div class="skill">jasa coding situs ringan</div>
+                            <div class="skill">Kelas Trading</div>
+                            <div class="skill">Jasa Coding</div>
                         </div>
                     </div>
                     <div class="about-visual">
-                        <div class="visual-element hover-scale-card pulse-ring" id="aboutPhoto">
+                        <div class="visual-element pulse-ring">
                             <img src="assets/img/tentang saya.png" alt="Foto Profil">
                             <div class="about-overlay">
-                                <h3>Rendi Pratama</h3>
-                                <p>Pengelola JakenShop</p>
+                                <h3 data-text-id="aboutName">Rendi Pratama</h3>
+                                <p data-text-id="aboutRole">Pengelola JAken.com</p>
                             </div>
                         </div>
-                        <div class="visual-element"></div>
-                        <div class="visual-element"></div>
                     </div>
                 </div>
             </div>
@@ -99,33 +95,31 @@
         <section id="portfolio">
             <div class="container">
                 <div class="section-title">
-                    <h2>Produk</h2>
+                    <h2 data-text-id="productsTitle">Produk Kami</h2>
                 </div>
-                <div class="portfolio-grid">
-                    <div class="portfolio-item hover-scale-card pulse-ring">
+                        <div class="portfolio-grid">
+                    <div class="portfolio-item">
                         <a href="https://www.google.com" target="_blank" class="product-link-btn" title="Buka Situs"><i class="fas fa-external-link-alt"></i></a>
-                        <img src="assets/img/kartu internet.png" alt="Kartu Internet produk">
+                        <img src="assets/img/kartu internet.png" alt="Kartu Internet">
                         <div class="portfolio-overlay">
-                            <h3 class="animated-gradient">KARTU INTERNET</h3>
-                            <p>Berbagai kartu internet jepang , tanpa kontrak</p>
+                            <h3 class="animated-gradient" data-text-id="product1Title">Kartu Internet</h3>
+                            <p data-text-id="product1Desc">Berbagai kartu internet Jepang, tanpa kontrak</p>
                         </div>
                     </div>
-                    <div class="portfolio-item hover-scale-card pulse-ring">
+                    <div class="portfolio-item">
                         <a href="https://www.google.com" target="_blank" class="product-link-btn" title="Buka Situs"><i class="fas fa-external-link-alt"></i></a>
-                        <img src="assets/img/tabako.png" alt="tabako produk"
-                            alt="Proyek 2">
+                        <img src="assets/img/tabako.png" alt="Tabako">
                         <div class="portfolio-overlay">
-                            <h3 class="animated-gradient">TABAKO</h3>
-                            <p>berbagai merek rokok indonesia , jelas harga murah</p>
+                            <h3 class="animated-gradient" data-text-id="product2Title">Tabako</h3>
+                            <p data-text-id="product2Desc">Berbagai merek rokok Indonesia, harga kompetitif</p>
                         </div>
                     </div>
-                    <div class="portfolio-item hover-scale-card pulse-ring">
+                    <div class="portfolio-item">
                         <a href="https://www.google.com" target="_blank" class="product-link-btn" title="Buka Situs"><i class="fas fa-external-link-alt"></i></a>
-                        <img src="assets/img/kelas trading.png" alt="kelas produk"
-                            alt="Proyek 3">
+                        <img src="assets/img/kelas trading.png" alt="Kelas Trading">
                         <div class="portfolio-overlay">
-                            <h3 class="animated-gradient">KELAS TRADING & INVESTASI</h3>
-                            <p>Berbagai cara dan strategi yang lengkap dan realistis , bukan jude !</p>
+                            <h3 class="animated-gradient" data-text-id="product3Title">Kelas Trading</h3>
+                            <p data-text-id="product3Desc">Strategi trading & investasi lengkap dan realistis</p>
                         </div>
                     </div>
                 </div>
@@ -136,61 +130,59 @@
         <section id="contact">
             <div class="container">
                 <div class="section-title">
-                    <h2>Hubungi Saya</h2>
+                    <h2 data-text-id="contactTitle">Hubungi Saya</h2>
                 </div>
                 <div class="contact-content">
                     <div class="contact-info">
-                        <div class="contact-item hover-scale-card">
+                        <div class="contact-item">
                             <div class="contact-icon">
                                 <i class="fas fa-map-marker-alt"></i>
                             </div>
                             <div>
-                                <h3>Lokasi</h3>
-                                <p>shizuoka shi , japan </p>
+                                <h3 data-text-id="locationLabel">Lokasi</h3>
+                                <p data-text-id="locationValue">Sakabe, Makinohara, Shizuoka Japan</p>
                             </div>
                         </div>
-                        <div class="map-container hover-scale-card">
-                            <iframe 
-                                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3351.8999999999996!2d138.2169653!3d34.7741038!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2s0x601a5b1374f3614d%3A0x42bee48333e3a259!5e0!3m2!1sen!2sid!4v1699000000000!5m2!1sen!2sid" 
-                                width="100%" 
-                                height="200" 
-                                style="border:0; border-radius: 10px; margin-top: 15px;" 
-                                allowfullscreen="" 
-                                loading="lazy" 
-                                referrerpolicy="no-referrer-when-downgrade">
-                            </iframe>
-                        </div>
-                        <div class="contact-item hover-scale-card">
+                        <div class="contact-item">
                             <div class="contact-icon">
                                 <i class="fas fa-envelope"></i>
                             </div>
                             <div>
-                                <h3>Email</h3>
+                                <h3 data-text-id="emailLabel">Email</h3>
                                 <p>japanrendi25@gmail.com</p>
                             </div>
                         </div>
-                        <div class="contact-item hover-scale-card">
+                        <div class="contact-item">
                             <div class="contact-icon">
                                 <i class="fas fa-phone"></i>
                             </div>
                             <div>
-                                <h3>Telepon</h3>
-                                <p>
-                                    +62 819 9063 7492
-                                </p>
+                                <h3 data-text-id="phoneLabel">Telepon</h3>
+                                <p>+62 819 9063 7492</p>
                             </div>
                         </div>
+                        <div class="map-container hover-scale-card">
+                            <iframe 
+                                src="https://www.google.com/maps/embed?ll=34.6693,138.1235&z=14&t=m&hl=en&gl=ID&mapclient=embed&q=Sakabe,+Makinohara,+Shizuoka+Japan"
+                                width="100%" 
+                                height="200" 
+                                style="border:0; border-radius: 16px;" 
+                                allowfullscreen="" 
+                                loading="lazy" 
+                                referrerpolicy="no-referrer-when-downgrade"
+                                title="Lokasi Kami">
+                            </iframe>
+                        </div>
                     </div>
-                    <div class="contact-form glass-card hover-scale-card">
+                    <div class="contact-form">
                         <form id="contactForm">
                             <div class="form-group">
                                 <input type="text" placeholder="Nama Lengkap" required>
                             </div>
                             <div class="form-group">
-                                <textarea placeholder="keluh kesah" required></textarea>
+                                <textarea placeholder="Pesan Anda" required></textarea>
                             </div>
-                            <button type="submit" class="submit-btn">Kirim Pesan <i
-                                    class="fas fa-paper-plane"></i></button>
+                            <button type="submit" class="submit-btn">Kirim Pesan <i class="fas fa-paper-plane"></i></button>
                         </form>
                     </div>
                 </div>
@@ -201,15 +193,15 @@
     <!-- Footer -->
     <footer>
         <div class="container">
-            <a href="#" class="logo">ありがとう　ございます<span style="color: var(--secondary);">.</span></a>
+            <a href="#" class="logo">ありがとう<span style="color: #14F195;">ございます</span></a>
             <div class="social-links">
-                <a href="#" class="social-link hover-scale-card"><img src="assets/img/icon1.png" alt="Icon 1"></a>
-                <a href="#" class="social-link hover-scale-card"><img src="assets/img/icon2.png" alt="Icon 2"></a>
-                <a href="#" class="social-link hover-scale-card"><img src="assets/img/icon3.png" alt="Icon 3"></a>
-                <a href="#" class="social-link hover-scale-card"><img src="assets/img/icon4.png" alt="Icon 4"></a>
-                <a href="#" class="social-link hover-scale-card"><img src="assets/img/icon5.png" alt="Icon 5"></a>
+                <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+                <a href="#" class="social-link"><i class="fab fa-whatsapp"></i></a>
+                <a href="#" class="social-link"><i class="fab fa-telegram"></i></a>
+                <a href="#" class="social-link"><i class="fab fa-youtube"></i></a>
+                <a href="#" class="social-link"><i class="fab fa-tiktok"></i></a>
             </div>
-            <p class="copyright">☻ kita usahakan jadi toko dengan kualitas terbaik</p>
+            <p class="copyright">© 2025 rendi pratama. All rights reserved.</p>
         </div>
     </footer>
 
